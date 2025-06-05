@@ -7,7 +7,7 @@ function createHeart() {
   document.body.appendChild(heart);
   setTimeout(() => heart.remove(), 10000);
 }
-setInterval(createHeart, 500);
+setInterval(createHeart, 400);
 
 // Timer de amor
 function updateLoveTimer() {
