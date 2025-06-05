@@ -1,0 +1,162 @@
+/* Reset básico */
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: radial-gradient(#000, #111);
+    color: white;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  
+  /* Fundo estrelado */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/stardust.png');
+    z-index: -3;
+    opacity: 0.3;
+  }
+  
+  /* Tela inicial fixa */
+  #startScreen {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100vh;
+    background: radial-gradient(#000, #111);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  }
+  
+  /* Botão de iniciar */
+  #startBtn {
+    padding: 20px 40px;
+    font-size: 1.5rem;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  #startBtn:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Corações caindo */
+  .heart {
+    position: fixed;
+    top: -10px;
+    width: 20px;
+    height: 20px;
+    background: red;
+    transform: rotate(45deg);
+    animation: fall 8s linear infinite;
+    border-radius: 50% 50% 0 0;
+    z-index: -1;
+  }
+  .heart::before,
+  .heart::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+  }
+  .heart::before {
+    top: -10px;
+    left: 0;
+  }
+  .heart::after {
+    top: 0;
+    left: -10px;
+  }
+  @keyframes fall {
+    0% {
+      top: -10px;
+      opacity: 1;
+      transform: translateX(0) rotate(45deg);
+    }
+    100% {
+      top: 100vh;
+      opacity: 0;
+      transform: translateX(100px) rotate(720deg);
+    }
+  }
+  .secret-msg {
+    display: none;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    background: rgba(255, 192, 203, 0.95);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px pink;
+    z-index: 9999;
+    max-width: 300px;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    will-change: opacity, transform;
+  }
+  
+  .scroll-reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  
+  /* Conteúdo principal oculto inicialmente */
+  #mainContent {
+    display: none;
+    opacity: 0;
+    transition: opacity 1s ease;
+    padding: 30px 20px;
+  }
+  
+  /* Carrossel */
+  .carousel {
+    max-width: 500px;
+    margin: 20px auto;
+    border: 30px solid transparent;
+    border-radius: 40px;
+  }
+  
+  .carousel-control-prev,
+.carousel-control-next {
+  display: none;
+}
+
+  /* Timer */
+  #loveTimer {
+    margin: 30px 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: pink;
+  }
+  
+  /* Texto de amor */
+  .love-text {
+    max-width: 700px;
+    margin: 30px auto;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    text-align: justify;
+  }
+  
