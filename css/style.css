@@ -137,7 +137,6 @@ body {
   .carousel {
     max-width: 500px;
     margin: 20px auto;
-    border: 30px solid transparent;
     border-radius: 40px;
   }
 
